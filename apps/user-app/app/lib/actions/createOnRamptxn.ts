@@ -13,6 +13,8 @@ export async function createOnRampTransaction(amount: number, provider: string) 
             message: "User not logged in"
         }
     }
+
+    //This is commented by vivek
     await prisma.onRampTransaction.create({
         data: {
             userId: Number(userId), // 1

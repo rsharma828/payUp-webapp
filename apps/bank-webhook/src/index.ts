@@ -30,6 +30,7 @@ app.post("/hdfcWebhook", async (req, res) => {
           },
         },
       }),
+      // add ramptransaction to db
       db.onRampTransaction.updateMany({
         where: {
           token: paymentInformation.token,
@@ -44,6 +45,7 @@ app.post("/hdfcWebhook", async (req, res) => {
       message: "Captured",
     });
   } catch (e) {
+    // catch error
     console.error(e);
     res.status(411).json({
       message: "Error while processing webhook",
